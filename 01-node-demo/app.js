@@ -10,15 +10,45 @@
 // })
 
 
-const http = require('http')
+// METHOD 2
+
+
+// const http = require('http')
+
+// let server = http.createServer((req,res) =>{
+//     res.writeHead(200,{'content-type':"text-plain"})
+//     res.write("Hello world")
+//     res.end();
+// });
+    
+// server.listen(3200,()=>{
+//     console.log('Application is running in port number 3200');
+    
+// })
+
+
+// METHOD 3
+
+const http = require('http');
 
 let server = http.createServer((req,res) =>{
-    res.writeHead(200,{'content-type':"text-plain"})
-    res.write("Hello world")
-    res.end();
+    if (req.url === '/home' && req.method ==='GET') {
+        res.writeHead(200,{"Content-type" :"text/plain"})
+        res.write('Home Page')
+        res.end();
+        
+    } else if (req.url === '/faculty' && req.method ==='POST') {
+        res.writeHead(200,{"Content-type" :"text/plain"})
+        res.write('Faculty Page')
+        res.end();
+    } else {
+        res.writeHead(404,{"Content-type" :"text/plain"})
+        res.write('Page Not Found')
+        res.end();
+    } 
 });
-    
-server.listen(3200,()=>{
+
+ server.listen(3200,()=>{
     console.log('Application is running in port number 3200');
     
-})
+});
