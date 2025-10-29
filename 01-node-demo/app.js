@@ -52,3 +52,28 @@ let server = http.createServer((req,res) =>{
     console.log('Application is running in port number 3200');
     
 });
+
+//EXPRESS 
+const express = require('express');
+const { log } = require('node:console');
+const app = express();
+
+app.get("/home",(req,res) =>{
+    console.log('IN HOME PAGE');
+    
+})
+
+app.post("/faculty",(req,res) =>{
+    console.log('IN FACULTY PAGE');
+    
+})
+
+app.get("/*",(req,res) =>{
+    console.log('IN PAGE NOT FOUND');
+    
+})
+
+app.listen(3000,()=>{
+    console.log('Application Started at 3000');
+    
+})
