@@ -82,12 +82,10 @@
 const express = require('express');
 const app = express();
 
-function middlewareFun(req,res,next){
-    console.log("Middleware function is invoked");
-    next();
-}
-
-app.use(middlewareFun);
+app.post('/login', (req,res) =>{
+    console.log(req.body);
+    res.send("Login sucessfull!")
+})
 
 app.get("/home", (req,res) =>{
     res.send('IN HOME PAGE');
