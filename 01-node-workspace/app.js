@@ -85,8 +85,12 @@ const app = express();
 app.use(express.json());
 
 app.post('/login', (req,res) =>{
-    console.log(req.body);
+   if(req.body.username === "Varun" && req.body.password === "12345"){
     res.send("Login sucessfull!")
+   }
+   else{
+    res.send("LOGIN FAILED!")
+   }
 })
 
 app.get("/home", (req,res) =>{
