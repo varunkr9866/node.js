@@ -82,6 +82,12 @@
 const express = require('express');
 const app = express();
 
+let user = {
+    username : null,
+    email:null,
+    mobile:null,
+    password:null
+}
 app.use(express.json());
 
 app.post('/login', (req,res) =>{
@@ -91,7 +97,20 @@ app.post('/login', (req,res) =>{
    else{
     res.send("LOGIN FAILED!")
    }
-})
+});
+
+
+app.post('/signup', (req,res) =>{
+    user = {
+    username : req.body.username,
+    email:req.body.email,
+    mobile:req.body.mobile,
+    password:req.body.password
+}
+console.log(user);
+res.send("Sign Up Sucessfull!!")
+
+});
 
 app.get("/home", (req,res) =>{
     res.send('IN HOME PAGE');
